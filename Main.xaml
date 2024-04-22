@@ -185,8 +185,12 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Components\Update Job Metrics Spreadsheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Components\Update Job Metrics Spreadsheet.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_AggregatedProcessMetrics">[dt_AggregatedProcessMetrics]</InArgument>
-        <InArgument x:TypeArguments="x:Int32" x:Key="in_int_PreviousDayCount">[in_int_PreviousDayCount]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_AggregatedProcessMetrics">
+          <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_AggregatedProcessMetrics" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:Int32" x:Key="in_int_PreviousDayCount">
+          <VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="in_int_PreviousDayCount" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

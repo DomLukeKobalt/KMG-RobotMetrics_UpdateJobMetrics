@@ -4,7 +4,7 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.22.3]",
+    "UiPath.Excel.Activities": "[2.23.2-preview]",
     "UiPath.GSuite.Activities": "[2.5.9]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.System.Activities": "[23.10.3]",

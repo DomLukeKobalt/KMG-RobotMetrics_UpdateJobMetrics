@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Component_Template" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Component_Template" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Example In Argument." Name="in_dt_AggregatedProcessMetrics" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_int_PreviousDayCount" Type="InArgument(x:Int32)" />
@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>853.3333333333334,3002</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1496,4277</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Component_Template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -58,6 +58,8 @@
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -150,7 +152,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="1. Download latest snapshot, read and delete temp.&#xA;&#xA;2. Update figures in first few columns (where process name match found)&#xA;&#xA;3. Write the data to the GSheet." DisplayName="Component" sap:VirtualizedContainerService.HintSize="512,2937.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="1. Download latest snapshot, read and delete temp.&#xA;&#xA;2. Update figures in first few columns (where process name match found)&#xA;&#xA;3. Write the data to the GSheet." DisplayName="Component" sap:VirtualizedContainerService.HintSize="760,4212" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Name of the current component." Default="Update Job Metrics Spreadsheet" Name="str_ComponentName" />
     </Sequence.Variables>
@@ -160,8 +162,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting Component: &quot; + str_ComponentName]" />
-    <Sequence sap2010:Annotation.AnnotationText="QA check to ensure the component can start with the expected happy-path environment. E.g. checking an input argument exists, or an expected screen is open." DisplayName="Check Pre-Conditions" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="698,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting Component: &quot; + str_ComponentName]" />
+    <Sequence sap2010:Annotation.AnnotationText="QA check to ensure the component can start with the expected happy-path environment. E.g. checking an input argument exists, or an expected screen is open." DisplayName="Check Pre-Conditions" sap:VirtualizedContainerService.HintSize="698,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -171,7 +173,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:Comment sap:VirtualizedContainerService.HintSize="388,95.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Add your pre-condition checks here. If none are required then log that you are bypassing this." />
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="The 'doing' part of the component. This should be a simple and granular as can be. If the component is doing more than one thing (for example, navigating to a page and extracting data) these should be split into further components and grouped in to a logical sub-process." DisplayName="Component Actions" sap:VirtualizedContainerService.HintSize="450,2112.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <Sequence sap2010:Annotation.AnnotationText="The 'doing' part of the component. This should be a simple and granular as can be. If the component is doing more than one thing (for example, navigating to a page and extracting data) these should be split into further components and grouped in to a logical sub-process." DisplayName="Component Actions" sap:VirtualizedContainerService.HintSize="698,3410" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="ugdm:GDriveLocalItem" Name="fileInfo_DownloadedFile" />
         <Variable x:TypeArguments="x:Double" Name="str_PreviousTotal" />
@@ -183,7 +185,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <uga:DownloadFileConnections BrowserFileId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" File="{x:Null}" FileFriendlyName="{x:Null}" ManualEntryFileId="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConnectionId="a7937874-08df-4af7-9e1b-fffd65384322" DisplayName="Download File" DownloadDocumentAs="Word" DownloadDrawingAs="Jpeg" DownloadPresentationAs="Ppt" DownloadSpreadsheetAs="Xlsx" FileInputMode="UrlOrId" sap:VirtualizedContainerService.HintSize="388,154.66666666666666" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_1" ManualFileId="https://docs.google.com/spreadsheets/d/1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY/edit#gid=1925512912" NewResult="[fileInfo_DownloadedFile]" UseConnectionService="True">
+      <uga:DownloadFileConnections BrowserFileId="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" File="{x:Null}" FileFriendlyName="{x:Null}" ManualEntryFileId="{x:Null}" Result="{x:Null}" AuthScopesInvalid="False" ConnectionId="a7937874-08df-4af7-9e1b-fffd65384322" DisplayName="Download File" DownloadDocumentAs="Word" DownloadDrawingAs="Jpeg" DownloadPresentationAs="Ppt" DownloadSpreadsheetAs="Xlsx" FileInputMode="UrlOrId" sap:VirtualizedContainerService.HintSize="636,152" sap2010:WorkflowViewState.IdRef="DownloadFileConnections_1" ManualFileId="https://docs.google.com/spreadsheets/d/1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY/edit#gid=1925512912" NewResult="[fileInfo_DownloadedFile]" UseConnectionService="True">
         <uga:DownloadFileConnections.FileIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="UrlOrId">
             <usau:BackupSlot.BackupValues>
@@ -201,35 +203,114 @@
           </usau:BackupSlot>
         </uga:DownloadFileConnections.FileIdBackup>
       </uga:DownloadFileConnections>
-      <ui:ReadCell Cell="D1" DisplayName="Read Cell Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Draft Job ATD" WorkbookPath="[fileInfo_DownloadedFile.LocalPath]">
-        <ui:ReadCell.Result>
-          <OutArgument x:TypeArguments="x:Double">[str_PreviousTotal]</OutArgument>
-        </ui:ReadCell.Result>
-      </ui:ReadCell>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="388,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Previous ATD Total Processing Time: &quot; + str_PreviousTotal.ToString]" />
-      <ui:ReadRange AddHeaders="True" DataTable="[dt_MasterGSheetData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A2" SheetName="Draft Job ATD" WorkbookPath="[fileInfo_DownloadedFile.LocalPath]" />
-      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="388,82" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[fileInfo_DownloadedFile.LocalPath]" />
-      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="1. Calculate how many processes have run since (add last figure with additional figure.&#xA;&#xA;2. Calculate total processing time (add last figure with new figure (divided by 60 for secs to mins conversion).&#xA;&#xA;3. Recalculate the average execution time by dividng the above new figures." DataTable="[dt_MasterGSheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="388,282.6666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
-        <ui:ForEachRow.Body>
-          <ActivityAction x:TypeArguments="sd:DataRow">
+      <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="636,879" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2" ShowExcelWindow="False">
+        <ueab:ExcelProcessScopeX.Body>
+          <ActivityAction x:TypeArguments="ui:IExcelProcess">
             <ActivityAction.Argument>
-              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+              <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="596.6666666666666,537.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_8">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="602,752" sap2010:WorkflowViewState.IdRef="Sequence_9">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[in_dt_AggregatedProcessMetrics.AsEnumerable.Any(Function (x) x(&quot;ProcessName&quot;).tostring = CurrentRow(&quot;Process&quot;).tostring) = True]" sap:VirtualizedContainerService.HintSize="554.6666666666666,450" sap2010:WorkflowViewState.IdRef="If_1">
+              <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="540,641" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[fileInfo_DownloadedFile.LocalPath]">
+                <ueab:ExcelApplicationCard.Body>
+                  <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="506,372" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="444,52" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="506,275.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ueab:ReadCellValueX Cell="[Excel.Sheet(&quot;Draft Job ATD&quot;).Cell(&quot;D1&quot;)]" DisplayName="Read Cell Value" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="444,164.66666666666666" sap2010:WorkflowViewState.IdRef="ReadCellValueX_2">
+                              <ueab:ReadCellValueX.SaveTo>
+                                <OutArgument x:TypeArguments="x:Double">[str_PreviousTotal]</OutArgument>
+                              </ueab:ReadCellValueX.SaveTo>
+                            </ueab:ReadCellValueX>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
+                      <ueab:ReadRangeX DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="444,169" sap2010:WorkflowViewState.IdRef="ReadRangeX_1" Range="[Excel.Sheet(&quot;Draft Job ATD&quot;).Range(&quot;A2&quot;)]" SaveTo="[dt_MasterGSheetData]" />
+                    </Sequence>
+                  </ActivityAction>
+                </ueab:ExcelApplicationCard.Body>
+              </ueab:ExcelApplicationCard>
+            </Sequence>
+          </ActivityAction>
+        </ueab:ExcelProcessScopeX.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ueab:ExcelProcessScopeX>
+      <ui:CommentOut sap2010:Annotation.AnnotationText="Old workbook read range - started failing 18/04/24" DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="636,94" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+        <ui:CommentOut.Body>
+          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,327" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ReadRange AddHeaders="True" DataTable="[dt_MasterGSheetData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="A2" SheetName="Draft Job ATD" WorkbookPath="[fileInfo_DownloadedFile.LocalPath]" />
+            <ui:ReadCell Cell="D1" DisplayName="Read Cell Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadCell_1" SheetName="Draft Job ATD" WorkbookPath="[fileInfo_DownloadedFile.LocalPath]">
+              <ui:ReadCell.Result>
+                <OutArgument x:TypeArguments="x:Double">[str_PreviousTotal]</OutArgument>
+              </ui:ReadCell.Result>
+            </ui:ReadCell>
+          </Sequence>
+        </ui:CommentOut.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:CommentOut>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="636,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Previous ATD Total Processing Time: &quot; + str_PreviousTotal.ToString]" />
+      <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="636,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[fileInfo_DownloadedFile.LocalPath]" />
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="1. Calculate how many processes have run since (add last figure with additional figure).&#xA;&#xA;2. Calculate total processing time (add last figure with new figure (divided by 60 for secs to mins conversion).&#xA;&#xA;3. Recalculate the average execution time by dividng the above new figures." DataTable="[dt_MasterGSheetData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="636,809" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="597,536" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If Condition="[in_dt_AggregatedProcessMetrics.AsEnumerable.Any(Function (x) x(&quot;ProcessName&quot;).tostring = CurrentRow(&quot;Process&quot;).tostring) = True]" sap:VirtualizedContainerService.HintSize="555,448" sap2010:WorkflowViewState.IdRef="If_1">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="520.6666666666666,266" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence sap:VirtualizedContainerService.HintSize="521,266" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,178.66666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                       <ui:MultipleAssign.AssignOperations>
                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -245,7 +326,7 @@
                               <OutArgument x:TypeArguments="x:Object">[CurrentRow("TotalProcessingTimeToDate (mins)")]</OutArgument>
                             </ui:AssignOperation.To>
                             <ui:AssignOperation.Value>
-                              <InArgument x:TypeArguments="x:Double">[Math.Round(Convert.todouble(CurrentRow("TotalProcessingTimeToDate (mins)").ToString) + (Convert.todouble(in_dt_AggregatedProcessMetrics.AsEnumerable.where(Function (x) x("ProcessName").tostring = CurrentRow("Process").ToString).ElementAt(0)("TotalProcessingTime").ToString) / 60),2)]</InArgument>
+                              <InArgument x:TypeArguments="x:Double">[Math.Round(Convert.todouble(CurrentRow("TotalProcessingTimeToDate (mins)").ToString) +(Convert.todouble(in_dt_AggregatedProcessMetrics.AsEnumerable.where(Function (x) x("ProcessName").tostring = CurrentRow("Process").ToString).ElementAt(0)("TotalProcessingTime").ToString) / 60),2)]</InArgument>
                             </ui:AssignOperation.Value>
                           </ui:AssignOperation>
                           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -276,13 +357,13 @@
         </ui:ForEachRow.Body>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
-      <ui:FilterDataTable DataTable="[dt_MasterGSheetData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="388,164" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_MasterGSheetData]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable DataTable="[dt_MasterGSheetData]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="636,161" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_MasterGSheetData]" SelectColumnsMode="Keep">
         <ui:FilterDataTable.Filters>
           <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
             <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
@@ -297,7 +378,7 @@
           </scg:List>
         </ui:FilterDataTable.SelectColumns>
       </ui:FilterDataTable>
-      <uga:WriteRangeConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="RPA Business Value Calc" BrowserItemId="1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY" ConnectionId="36067ea2-2e3d-4563-82e8-0f561fec0efa" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="388,365.3333333333333" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_1" IncludeHeaders="True" ItemSelectionMode="Browse" Range="'Draft Job ATD'!A2" RowPosition="0" Source="[dt_MasterGSheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
+      <uga:WriteRangeConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="RPA Business Value Calc" BrowserItemId="1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY" ConnectionId="36067ea2-2e3d-4563-82e8-0f561fec0efa" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="636,358" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_1" IncludeHeaders="True" ItemSelectionMode="Browse" Range="'Draft Job ATD'!A2" RowPosition="0" Source="[dt_MasterGSheetData]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
         <uga:WriteRangeConnections.FileIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
             <usau:BackupSlot.BackupValues>
@@ -313,7 +394,7 @@
           </usau:BackupSlot>
         </uga:WriteRangeConnections.RangeWriteModeBackup>
       </uga:WriteRangeConnections>
-      <uga:WriteCellConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="RPA Business Value Calc" BrowserItemId="1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY" Cell="A1" ConnectionId="36067ea2-2e3d-4563-82e8-0f561fec0efa" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="388,312.6666666666667" sap2010:WorkflowViewState.IdRef="WriteCellConnections_1" ItemSelectionMode="Browse" RangeLocation="'Draft Job ATD'" UseConnectionService="True" WhatToWrite="[&quot;Latest Data To &quot; + date.now.AddDays(-in_int_PreviousDayCount).ToString(&quot;dd/MM/yyyy&quot;)]">
+      <uga:WriteCellConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="RPA Business Value Calc" BrowserItemId="1glVwq8DAfLSmC5lq-hvCXB-b_8MGAnOadXHkYFcFxzY" Cell="A1" ConnectionId="36067ea2-2e3d-4563-82e8-0f561fec0efa" DisplayName="Write Cell" HideCell="False" sap:VirtualizedContainerService.HintSize="636,305" sap2010:WorkflowViewState.IdRef="WriteCellConnections_1" ItemSelectionMode="Browse" RangeLocation="'Draft Job ATD'" UseConnectionService="True" WhatToWrite="[&quot;Latest Data To &quot; + date.now.AddDays(-in_int_PreviousDayCount).ToString(&quot;dd/MM/yyyy&quot;)]">
         <uga:WriteCellConnections.FileIdBackup>
           <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
             <usau:BackupSlot.BackupValues>
@@ -323,7 +404,7 @@
         </uga:WriteCellConnections.FileIdBackup>
       </uga:WriteCellConnections>
     </Sequence>
-    <Sequence sap2010:Annotation.AnnotationText="QA check to ensure the end-state of the component satisfies the happy-path. E.g. checking an output argument exists, a row is populated, or an expected screen is open/closed." DisplayName="Check Post-Conditions" sap:VirtualizedContainerService.HintSize="450,84.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence sap2010:Annotation.AnnotationText="QA check to ensure the end-state of the component satisfies the happy-path. E.g. checking an output argument exists, a row is populated, or an expected screen is open/closed." DisplayName="Check Post-Conditions" sap:VirtualizedContainerService.HintSize="698,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -333,6 +414,6 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:Comment sap:VirtualizedContainerService.HintSize="388,95.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// Add your post-condition checks here. If none are required then log that you are bypassing this." />
     </Sequence>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ending Component: &quot; + str_ComponentName]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="698,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Ending Component: &quot; + str_ComponentName]" />
   </Sequence>
 </Activity>
